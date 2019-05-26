@@ -4,7 +4,7 @@ apt update
 # Kernels, drivers and support for NTFS
 apt install linux-headers-$(uname -r)
 apt install build-essential checkinstall make automake cmake autoconf dpkg
-apt install firmware-linux firmware-realtek firmware-atheros
+apt install firmware-linux firmware-realtek firmware-atheros firware-iwlwifi
 apt install ntfs-3g
 
 

@@ -31,3 +31,4 @@ sudo apt install -y sudo
 sudo apt install -y lightdm-gtk-greeter-settings
 sudo apt remove -y xterm synaptic xsane firefox-esr exfalso
 sudo apt autoremove
+sudo apt install -y postgresql-9.6

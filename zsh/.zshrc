@@ -5,7 +5,7 @@
 #########################
 
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME='bira'
+ZSH_THEME='fishy'
 DISABLE_UNTRACKED_FILES_DIRTY='true'
 HIST_STAMPS='yyyy-mm-dd'
 plugins=(git extract)

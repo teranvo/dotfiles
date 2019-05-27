@@ -1,0 +1,33 @@
+#!/bin/sh
+sudo apt update
+sudo apt install -y deb-multimedia-keyring
+sudo apt update
+sudo apt install -y 'linux-headers-$(uname -r)'
+sudo apt install -y build-essential checkinstall make automake cmake autoconf dpkg
+sudo apt install -y firmware-linux firmware-realtek firmware-atheros firmware-iwlwifi
+sudo apt install -y ntfs-3g dirmngr
+sudo apt install -y zsh stow
+sudo apt install -y git-core git-flow
+sudo apt install -y wget curl
+sudo apt install -y vim ctags vim-scripts
+sudo apt install -y gstreamer1.0-fluendo-mp3 gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-pulseaudio vorbis-tools
+sudo apt install -y bzip2 zip unzip unace rar unace p7zip p7zip-full p7zip-rar unrar lzip lhasa arj sharutils mpack lzma lzop cabextract
+sudo apt install -y hddtemp lm-sensors
+sudo apt install -y ttf-freefont
+sudo apt install -y wireless-tools acpi-support cpufrequtils acpi wpasupplicant powertop acpid apmd pcmciautils pm-utils anacron bluetooth pulseaudio-module-bluetooth radeontool
+sudo apt install -y xserver-xorg-input-synaptics
+sudo curl -sL https://deb.nodesource.com/setup_10.x | bash -
+sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+sudo apt update
+sudo apt install -y nodejs yarn
+sudo echo "deb http://dl.google.com/linux/deb/ stable main" | tee /etc/apt/sources.list.d/tmp_chrome.list
+sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+sudo apt update
+sudo apt install -y google-chrome-stable
+sudo rm /etc/apt/sources.list.d/tmp_chrome.list
+sudo apt install -y xarchiver plank faba-icon-theme greybird-gtk-theme
+sudo apt install -y sudo
+sudo apt install -y lightdm-gtk-greeter-settings
+sudo apt remove -y xterm synaptic xsane firefox-esr exfalso
+sudo apt autoremove

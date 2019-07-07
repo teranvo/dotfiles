@@ -23,6 +23,6 @@ sudo echo "deb http://dl.google.com/linux/deb/ stable main" | tee /etc/apt/sourc
 sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 sudo apt install -y google-chrome-stable
 sudo rm /etc/apt/sources.list.d/tmp_chrome.list
-sudo apt remove -y xterm synaptic xsane firefox-esr exfalso
+sudo apt remove -y xterm synaptic xsane firefox-esr exfalso parole
 sudo apt install gtk2-engines-murrine arc-theme papirus-icon-theme
 

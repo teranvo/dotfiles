@@ -1,0 +1,11 @@
+#!/bin/sh
+sudo echo "deb http://dl.google.com/linux/deb/ stable main" | sudo tee /etc/apt/sources.list.d/tmp_chrome.list
+sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo apt update
+sudo apt install -y google-chrome-stable
+if [ -f /etc/apt/sources.list.d/tmp_chrome.list ];
+  then
+    sudo rm /etc/apt/sources.list.d/tmp_chrome.list
+  else
+    echo "El archivo temporal tmp_chrome.list no existe"
+fi

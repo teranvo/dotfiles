@@ -1,0 +1,153 @@
+#!/bin/sh
+compression="bzip2 zip unzip unace rar unace p7zip p7zip-full p7zip-rar unrar lzip lhasa arj sharutils mpack lzma lzop cabextract"
+
+firmwares="linux-headers-$(uname -r) firmware-linux firmware-realtek firmware-atheros firmware-iwlwifi"
+
+build_tools="build-essential make automake cmake autoconf dpkg git git-flow vim ctags vim-scripts"
+
+basic="zsh stow wget curl ntfs-3g dirmngr htop software-properties-common apt-transport-https"
+
+laptop="wireless-tools acpi-support cpufrequtils acpi wpasupplicant powertop acpid pcmciautils pm-utils anacron bluetooth pulseaudio-module-bluetooth radeontool hddtemp lm-sensors xserver-xorg-input-synaptics"
+
+node="nodejs npm yarnpkg"
+
+desktop="lightdm-gtk-greeter-settings menulibre plank xarchiver gtk2-engines-murrine arc-theme papirus-icon-theme fonts-liberation geary"
+
+codecs="gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-pulseaudio vorbis-tools vlc"
+
+adware="xterm synaptic xsane firefox-esr exfalso parole"
+
+redis="redis-server"
+
+php="composer php php-fpm php-gd php-mbstring php-xml php-mysql php-pgsql php-sqlite3 php-json php-zip php-pear"
+
+mysql="mariadb-server"
+
+nginx="nginx"
+
+apache="apache2"
+
+mongo=""
+
+django="python3-dev python3-pip python3-virtualenv"
+
+postgres="postgresql-11"
+
+
+Install() {
+  sudo apt install -y ${*}
+}
+
+Remove() {
+  sudo apt remove ${*}
+}
+
+Desktop() {
+  Install $desktop
+}
+
+case "$1" in
+  stack)
+    case "$2" in
+      node)
+        Install $node
+        Install $redis
+        ;;
+      php)
+        Install $php
+        ;;
+      lamp)
+        Install $php
+        Install $mysql
+        Install $apache
+        ;;
+      lemp)
+        Install $php
+        Install $mysql
+        Install $nginx
+        ;;
+      mongo)
+        Install $mongo
+        ;;
+      postgres)
+        Install $postgres
+        ;;
+      django)
+        Install $django
+        ;;
+      mean)
+        Install $node
+        Install $mongo
+        Install $redis
+        ;;
+      *)
+        echo "Usage stack:{node|php|redis|postgres|mysql|mongo|mean|lamp|lemp|django}"
+        exit 1
+    esac
+    ;;
+  install)
+    case "$2" in
+      teranvo)
+        Install $firmwares
+        Install $build_tools
+        Install $basic
+        Install $compression
+        Install $laptop
+        Install $node
+        Desktop
+        sh scripts/chrome
+        Install $codecs
+        ;;
+      codecs)
+        Install $codecs
+        ;;
+      chrome)
+        sh scripts/chrome
+        ;;
+      node)
+        Install $node
+        ;;
+      desktop)
+        Desktop
+        ;;
+      compression)
+        Install $compression
+        ;;
+      firmwares)
+        Install $firmwares
+        ;;
+      build)
+        Install $build_tools
+        ;;
+      basic)
+        Install $basic
+        ;;
+      laptop)
+        Install $laptop
+        ;;
+      virtualbox)
+        sh scripts/virtualbox
+        ;;
+      code)
+        sh scripts/code
+        ;;
+      *)
+        echo "Usage install:{teranvo|basic|compression|firmwares|build|laptop|desktop|node|codecs|chrome|virtualbox|code}"
+        exit 1
+    esac
+    ;;
+  remove)
+    case "$2" in
+      adware)
+        Remove $adware
+        ;;
+      *)
+        echo "Usage remove:{adware}"
+        exit 1
+      esac
+    ;;
+  *)
+    echo "Usage: teranvo:{install|remove|stack}"
+    exit 1
+esac
+

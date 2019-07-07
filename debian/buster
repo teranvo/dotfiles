@@ -1,0 +1,28 @@
+#!/bin/sh
+sudo apt update
+sudo apt install -y deb-multimedia-keyring
+sudo apt update
+sudo apt install -y linux-headers-$(uname -r)
+sudo apt install -y build-essential make automake cmake autoconf dpkg
+sudo apt install -y firmware-linux firmware-realtek firmware-atheros firmware-iwlwifi
+sudo apt install -y ntfs-3g dirmngr
+sudo apt install -y zsh stow
+sudo apt install -y git-core git-flow
+sudo apt install -y wget curl
+sudo apt install -y vim ctags vim-scripts
+sudo apt install -y bzip2 zip unzip unace rar unace p7zip p7zip-full p7zip-rar unrar lzip lhasa arj sharutils mpack lzma lzop cabextract
+sudo apt install -y hddtemp lm-sensors
+sudo apt install -y wireless-tools acpi-support cpufrequtils acpi wpasupplicant powertop acpid pcmciautils pm-utils anacron bluetooth pulseaudio-module-bluetooth radeontool
+sudo apt install -y xserver-xorg-input-synaptics
+sudo apt install -y nodejs npm yarnpkg
+sudo apt install -y gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-pulseaudio vorbis-tools
+sudo apt install -y vlc
+sudo apt install -y lightdm-gtk-greeter-settings
+sudo apt install -y menulibre plank xarchiver
+sudo echo "deb http://dl.google.com/linux/deb/ stable main" | tee /etc/apt/sources.list.d/tmp_chrome.list
+sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+sudo apt install -y google-chrome-stable
+sudo rm /etc/apt/sources.list.d/tmp_chrome.list
+sudo apt remove -y xterm synaptic xsane firefox-esr exfalso
+sudo apt install gtk2-engines-murrine arc-theme papirus-icon-theme
+

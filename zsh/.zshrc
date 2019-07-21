@@ -57,3 +57,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export JAVA_HOME="/opt/jdk"
 export PATH="$PATH:$JAVA_HOME/bin"
 
+# android
+export PATH="$HOME/Android/Sdk/tools:$PATH"
+export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+
